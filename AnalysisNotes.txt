@@ -1,0 +1,4 @@
+2020-01-05: It may be useful to subset the data by Surface vs different depths.
+and then do an ANOVA on the groups, compared to Bonny Crude.
+
+Step 1 - get percentage compositions
