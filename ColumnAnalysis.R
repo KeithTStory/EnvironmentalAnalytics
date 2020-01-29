@@ -81,8 +81,8 @@ df3$EC <- factor(df3$EC, levels = c("Aliphatic >EC5 - EC6",
 
 #Plot with averaged data
 (g <- ggplot(df3, aes(x = EC, y = `FractionalTPH`*100, fill = Depth_Bins)) +
-    geom_bar(data = subset(df3, Group == "Reference"), stat = "identity", fill = "black", color = "black", alpha = 0.3) +
     geom_bar(data = subset(df3, Group == "CoreSample"), stat = "identity") +
+    geom_bar(data = subset(df3, Group == "Reference"), stat = "identity", fill = "black", color = "black", alpha = 0.3) +
     #geom_errorbar(data = subset(df3, Group == "CoreSample"),aes(ymin=(FractionalTPH-seTPH)*100, ymax=(FractionalTPH+seTPH)*100, width=.21))+
     theme_bw() +
     theme(legend.position= "none",
@@ -103,7 +103,7 @@ df4 <- df3 %>%
   separate(EC, into= c("Parent", "Size"), sep = " >") %>%
   mutate(Subgroup = paste(Parent, Group, Depth_Bins, sep = " "))
   
-(g2 <- ggplot(df4, aes(x = Subgroup, y = FractionalTPH)) +
+(g2 <- ggplot(df4, aes(x = Subgroup, y = FractionalTPH, fill = Group)) +
   geom_boxplot() +
     theme(legend.position= "none",
           axis.text.x = element_text(angle = 90),
